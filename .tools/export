@@ -1,0 +1,8 @@
+#!/bin/sh
+for resolution in 90 120 300 1200; do
+    folder=png-$resolution
+    rm -rf ./$folder/*
+    for original in cardfunc-*.svg; do
+        inkscape $original -d $resolution -e $folder/${original%.*}-$resolution.png
+    done
+done
